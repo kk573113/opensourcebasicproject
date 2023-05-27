@@ -1,0 +1,80 @@
+from datetime import datetime
+import pymysql
+import smtplib
+import sql
+import weather
+from email.mime.text import MIMEText
+user_id=sql.user_id
+today_weather=weather.main_data
+
+db=pymysql.connect(host="127.0.0.1",
+user="root", password="",
+charset="utf8", database="opsw")
+cursor=db.cursor()
+
+pwd=''
+send_to='aktlakfhjh2@naver.com'
+
+def timeover():
+    query = f"SELECT created_at FROM mail_table WHERE weather={today_weather} AND user_id={user_id} AND send=False"
+    cursor.execute(query)
+    created_at = cursor.fetchone()
+    created_at=created_at[0]
+    created_at=datetime.strptime(created_at,"%Y-%m-%d").date()
+    now=datetime.now().date()
+    over=now-created_at
+    over=over.days
+    return over
+
+def send_mail():
+    smtp = smtplib.SMTP('smtp.gmail.com', 587)
+
+    smtp.starttls()
+
+    smtp.login('yeoonjinParkofficial@gmail.com', pwd)
+    msg = MIMEText(text)
+    msg['Subject'] = "제목"
+
+    smtp.sendmail('yeoonjinParkofficial@gmail.com', send_to, msg.as_string())
+
+    smtp.quit()
+
+
+
+time_result=timeover()
+query= f"SELECT period FROM user_table WHERE user_id={user_id}"
+cursor.execute(query)
+period=cursor.fetchone()
+period=int(period[0])
+
+if time_result>=period*7:
+    query=f"SELECT content FROM mail_table WHERE weather={today_weather} AND user_id={user_id} AND send=False"
+    cursor.execute(query)
+    result=cursor.fetchone()
+    text=result[0]if result else None
+
+
+    if text:
+        send_mail()
+    else:
+        print("no data avail")
+
+query2=f"SELECT mail_id FROM mail_table WHERE weather={today_weather} AND user_id={user_id} AND send=False"
+cursor.execute(query2)
+select_mail_id=cursor.fetchone()
+selected=select_mail_id[0]
+
+query3=f"UPDATE mail_table SET send=True WHERE mail_id={selected}"
+cursor.execute(query3)
+db.commit()
+
+db.close()
+
+
+
+
+def mail_box():
+    query="select created_at,weather,send From mail_table where user_id=2"
+    cursor.execute(query)
+    box=cursor.fetchall()
+    print(box)
