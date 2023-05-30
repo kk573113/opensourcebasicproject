@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main</class>
+ <widget class="QWidget" name="main">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">font: 16pt &quot;S-Core Dream&quot;;
+background-color:rgb(182, 18, 22);</string>
+  </property>
+  <widget class="QPushButton" name="main_write">
+   <property name="geometry">
+    <rect>
+     <x>215</x>
+     <y>230</y>
+     <width>370</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:white;
+color:rgb(182, 18, 22);</string>
+   </property>
+   <property name="text">
+    <string>작성하기</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>130</y>
+     <width>271</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;
+font: 27pt &quot;a타임머신&quot;;</string>
+   </property>
+   <property name="text">
+    <string>날씨우체통</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="main_archive">
+   <property name="geometry">
+    <rect>
+     <x>215</x>
+     <y>300</y>
+     <width>370</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:white;
+color:rgb(182, 18, 22);</string>
+   </property>
+   <property name="text">
+    <string>보관함</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="main_setup">
+   <property name="geometry">
+    <rect>
+     <x>215</x>
+     <y>370</y>
+     <width>370</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:white;
+color:rgb(182, 18, 22);</string>
+   </property>
+   <property name="text">
+    <string>설정</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="main_logout">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>530</y>
+     <width>130</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;S-Core Dream&quot;;
+background-color:rgb(248, 248, 248)</string>
+   </property>
+   <property name="text">
+    <string>로그아웃</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+ <slots>
+  <slot>openForm2()</slot>
+ </slots>
+</ui>

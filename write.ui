@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QPushButton" name="write_back">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>510</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(248, 248, 248);
+color:black;
+font: 13pt &quot;S-Core Dream&quot;;</string>
+   </property>
+   <property name="text">
+    <string>뒤로가기</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>240</y>
+     <width>37</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;S-Core Dream&quot;;
+background-color:white;</string>
+   </property>
+   <property name="text">
+    <string>날짜</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="write_content">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>90</y>
+     <width>501</width>
+     <height>461</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(182, 18, 22);
+font: 10pt &quot;S-Core Dream&quot;;
+background-color:white;</string>
+   </property>
+   <property name="placeholderText">
+    <string>메일을 입력하세요.</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_pic">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>70</y>
+     <width>60</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="write_date">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>600</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image : url('back.jpg');</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>340</y>
+     <width>37</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;S-Core Dream&quot;;
+background-color:white;</string>
+   </property>
+   <property name="text">
+    <string>날씨</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="title_content">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>40</y>
+     <width>501</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(182, 18, 22);
+font: 10pt &quot;S-Core Dream&quot;;
+background-color:white;</string>
+   </property>
+   <property name="placeholderText">
+    <string>제목을 입력하세요.</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="weather12">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>360</y>
+     <width>91</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;S-Core Dream&quot;;
+color:rgb(85, 170, 127);
+background-image:url(&quot;background.jpg&quot;);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="dateEdit">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>280</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 3px solid rgb(182, 18, 22);
+font: 10pt &quot;S-Core Dream&quot;;
+background-color:white;</string>
+   </property>
+   <property name="dateTime">
+    <datetime>
+     <hour>0</hour>
+     <minute>0</minute>
+     <second>0</second>
+     <year>2000</year>
+     <month>5</month>
+     <day>11</day>
+    </datetime>
+   </property>
+   <property name="date">
+    <date>
+     <year>2000</year>
+     <month>5</month>
+     <day>11</day>
+    </date>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="write_ok">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>460</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(182, 18, 22);
+color:white;
+font: 13pt &quot;S-Core Dream&quot;;
+</string>
+   </property>
+   <property name="text">
+    <string>나에게 전송하기</string>
+   </property>
+  </widget>
+  <zorder>write_date</zorder>
+  <zorder>write_back</zorder>
+  <zorder>label</zorder>
+  <zorder>write_content</zorder>
+  <zorder>label_pic</zorder>
+  <zorder>label_2</zorder>
+  <zorder>title_content</zorder>
+  <zorder>weather12</zorder>
+  <zorder>dateEdit</zorder>
+  <zorder>write_ok</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
