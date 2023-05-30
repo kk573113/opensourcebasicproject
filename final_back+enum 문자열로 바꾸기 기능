@@ -1,0 +1,96 @@
+from datetime import datetime
+import pymysql
+import smtplib
+import sql
+import weather
+from email.mime.text import MIMEText
+import random
+
+def get_db_connection():
+    return pymysql.connect(
+        host="localhost",
+        user="root",
+        password="gaga0223",
+        charset="utf8",
+        database="opsource"
+    )
+
+
+def timeover(cursor, today_weather, user_id):
+    query = f"SELECT created_at FROM mail_table WHERE weather={today_weather} AND user_id={user_id} AND send=False"
+    cursor.execute(query)
+    created_at = cursor.fetchone()[0]
+    created_at = datetime.strptime(created_at, "%Y-%m-%d").date()
+    now = datetime.now().date()
+    over = (now - created_at).days
+    return over
+
+
+def send_mail(pwd, send_to, text):
+    #rand=random.randrange(1,4)
+    #if(rand==3):
+       smtp = smtplib.SMTP('smtp.gmail.com', 587)
+       smtp.starttls()
+       smtp.login('yeoonjinParkofficial@gmail.com', pwd)
+       msg = MIMEText(text)
+       msg['Subject'] = "제목"
+       smtp.sendmail('yeoonjinParkofficial@gmail.com', send_to, msg.as_string())
+       smtp.quit()
+
+
+def check_and_send_mail(db, cursor, today_weather, user_id, pwd, send_to):
+    time_result = timeover(cursor, today_weather, user_id)
+    query = f"SELECT period FROM user_table WHERE user_id={user_id}"
+    cursor.execute(query)
+    period = int(cursor.fetchone()[0])
+
+    if time_result >= period * 7:
+        query = f"SELECT content FROM mail_table WHERE weather={today_weather} AND user_id={user_id} AND send=False"
+        cursor.execute(query)
+        result = cursor.fetchone()
+        text = result[0] if result else None
+
+        if text:
+            send_mail(pwd, send_to, text)
+        else:
+            print("데이터를 사용할 수 없습니다.")
+
+        query2 = f"SELECT mail_id FROM mail_table WHERE weather={today_weather} AND user_id={user_id} AND send=False"
+        cursor.execute(query2)
+        select_mail_id = cursor.fetchone()
+        selected = select_mail_id[0]
+
+        query3 = f"UPDATE mail_table SET send=True WHERE mail_id={selected}"
+        cursor.execute(query3)
+        db.commit()
+
+def int_to_str(enum_class,value):
+    for member in enum_class:
+        if member.value==value:
+            return member.name
+    return None
+
+def mail_box(cursor, user_id):
+    query = f"SELECT created_at, weather, send FROM mail_table WHERE user_id={user_id}"
+    cursor.execute(query)
+    box = cursor.fetchall()
+    print(box)
+    rows=len(box)
+
+    for i in range(rows):
+        real_Weather = int_to_str(weather.WEATHER,box[i][1])
+        print(real_Weather)
+
+
+user_id = sql.user_id
+today_weather = weather.main_data
+pwd = 'lpyweewytdihlbpk'
+send_to = 'gaga0223@naver.com'
+
+db = get_db_connection()
+cursor = db.cursor()
+
+check_and_send_mail(db, cursor, today_weather, user_id, pwd, send_to)
+mail_box(cursor, user_id)
+
+db.close()
