@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">font: 75 12pt &quot;S-Core Dream&quot;;
+background-color</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>20</y>
+     <width>801</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>a타임머신</family>
+     <pointsize>22</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(0, 32, 96);
+font: 22pt &quot;a타임머신&quot;;
+color: white;</string>
+   </property>
+   <property name="text">
+    <string>   보관함</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>130</y>
+     <width>721</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:white;</string>
+   </property>
+   <column>
+    <property name="text">
+     <string>날짜</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>날씨</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>제목</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>전송</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QPushButton" name="write_back">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>540</y>
+     <width>130</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt  &quot;S-Core Dream&quot;;
+background-color:rgb(248, 248, 248)</string>
+   </property>
+   <property name="text">
+    <string>뒤로가기</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
